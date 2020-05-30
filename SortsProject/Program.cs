@@ -20,7 +20,8 @@ namespace SortsProject
             //sortController.BubleSort();
             //sortController.QuickSort();
             //new BubbleSort().Sort(arrayProvider.SortArray);
-            new QuickSort().Sort(arrayProvider.SortArray);
+            //new QuickSort().Sort(arrayProvider.SortArray);
+            new InsertionSort().Sort(arrayProvider.SortArray);
             sortController.PrintArray();
 
             stopWatch.Stop();
