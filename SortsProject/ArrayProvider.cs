@@ -7,7 +7,7 @@ namespace SortsProject
 {
     class ArrayProvider
     {
-        int[] array;
+        private int[] array;
         Random rand = new Random();
 
         public ArrayProvider(int arraySize)
@@ -15,7 +15,7 @@ namespace SortsProject
             array = new int[arraySize];
         }
 
-        public int[] SortArray
+        public int[] ArrayToSort
         {
             get { return array; }
             set { array = value; }
