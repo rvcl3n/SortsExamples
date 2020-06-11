@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 namespace SortsProject
 {
@@ -8,6 +9,7 @@ namespace SortsProject
     {
         ArrayProvider _arrayProvider;
         Dictionary<string, ISort> sortsDictionary;
+        Stopwatch stopWatch;
 
         public SortController(ArrayProvider arrayProvider)
         {
@@ -20,6 +22,8 @@ namespace SortsProject
                 { "Merge", new MergeSort() },
                 { "Shaker", new ShakerSort() }
             };
+
+            stopWatch = new Stopwatch();
         }
 
         public void ArraySetup()
@@ -33,9 +37,20 @@ namespace SortsProject
             _arrayProvider.PrintArray();
         }
 
-        public void SortArray(string sortName)
+        public TimeSpan SortArray(string sortName)
         {
+            _arrayProvider.FillArray();
+            _arrayProvider.PrintArray();
+
+            stopWatch.Restart();
+
             sortsDictionary[sortName].Sort(_arrayProvider.ArrayToSort);
+
+            stopWatch.Stop();
+
+            _arrayProvider.PrintArray();
+
+            return stopWatch.Elapsed;
         }
     }
 }

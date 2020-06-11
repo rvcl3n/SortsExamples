@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace SortsProject
 {
@@ -7,29 +6,12 @@ namespace SortsProject
     {
         static void Main(string[] args)
         {
-            ArrayProvider arrayProvider = new ArrayProvider(20);
+            ArrayProvider arrayProvider = new ArrayProvider(200);
             SortController sortController = new SortController(arrayProvider);
 
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
+            TimeSpan SortoingTime = sortController.SortArray("Bubble");
 
-            sortController.ArraySetup();
-
-            sortController.SortArray("Bubble");
-
-            sortController.PrintArray();
-
-            sortController.ArraySetup();
-
-            sortController.SortArray("Quick");
-
-            sortController.PrintArray();
-
-            stopWatch.Stop();
-
-            TimeSpan ts = stopWatch.Elapsed;
-
-            Console.WriteLine("Total Seconds: "+ts.TotalSeconds);
+            Console.WriteLine("Total Seconds: "+ SortoingTime);
 
             Console.ReadKey();
         }
