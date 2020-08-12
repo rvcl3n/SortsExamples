@@ -60,7 +60,6 @@ namespace SortsProject
             Console.WriteLine("Available sorts:");
 
             sortsDictionary.ToList().ForEach(res=> Console.WriteLine($"- {res.Key}"));
-            //sortsDictionary.Select(res => res.Key).ToList().ForEach(item => Console.WriteLine(item));
 
             Console.WriteLine("================");
         }
