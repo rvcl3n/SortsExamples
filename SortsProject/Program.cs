@@ -9,11 +9,18 @@ namespace SortsProject
             ArrayProvider arrayProvider = new ArrayProvider(200);
             SortController sortController = new SortController(arrayProvider);
 
-            TimeSpan SortoingTime = sortController.SortArray("Bubble");
+            sortController.DisplayAvailableSorts();
 
-            Console.WriteLine("Total Seconds: "+ SortoingTime);
+            while (true)
+            {
+                Console.WriteLine("Enter the sort:");
+                string sortName = Console.ReadLine();
 
-            Console.ReadKey();
+                TimeSpan SortoingTime = sortController.SortArray(sortName);
+
+                Console.WriteLine("Total Seconds: " + SortoingTime);
+                Console.ReadKey();
+            }
         }
     }
 }

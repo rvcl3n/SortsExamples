@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
+using System.Linq;
+using System.ComponentModel;
 
 namespace SortsProject
 {
@@ -51,6 +53,16 @@ namespace SortsProject
             _arrayProvider.PrintArray();
 
             return stopWatch.Elapsed;
+        }
+
+        public void DisplayAvailableSorts()
+        {
+            Console.WriteLine("Available sorts:");
+
+            sortsDictionary.ToList().ForEach(res=> Console.WriteLine($"- {res.Key}"));
+            //sortsDictionary.Select(res => res.Key).ToList().ForEach(item => Console.WriteLine(item));
+
+            Console.WriteLine("================");
         }
     }
 }
